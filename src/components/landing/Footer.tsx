@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
                 {/* Copyright */}
                 <div className="mt-8 pt-6 border-t border-dark-800 text-center">
                     <p className="text-dark-500 text-[10px] uppercase tracking-widest">
-                        © {new Date().getFullYear()} Invoicer — Free forever
+                        © {new Date().getFullYear()} Invoicer — Powered by PlotArmour Studio
                     </p>
                 </div>
             </div>

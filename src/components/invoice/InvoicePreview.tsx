@@ -39,17 +39,18 @@ export const InvoicePreview = forwardRef<HTMLDivElement, InvoicePreviewProps>(
                 style={{ fontFamily: "var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", width: '100%', minHeight: '842px' }}
             >
                 {/* Header */}
-                <div className="flex justify-between items-start mb-8">
-                    <div className="flex items-start gap-4">
+                {/* Header */}
+                <div className="flex justify-between items-start mb-8 gap-4">
+                    <div className="flex items-start gap-4 flex-shrink max-w-[55%]">
                         {data.sender.logo && (
                             <img
                                 src={data.sender.logo}
                                 alt="Company Logo"
-                                className="w-16 h-16 object-contain"
+                                className="w-16 h-16 object-contain flex-shrink-0"
                             />
                         )}
-                        <div>
-                            <h1 className="text-2xl font-bold text-gray-900">
+                        <div className="min-w-0">
+                            <h1 className="text-xl font-bold text-gray-900 break-words">
                                 {data.sender.name || 'Your Company'}
                             </h1>
                             {data.sender.address && (
@@ -71,22 +72,22 @@ export const InvoicePreview = forwardRef<HTMLDivElement, InvoicePreviewProps>(
                             )}
                         </div>
                     </div>
-                    <div className="text-right">
-                        <h2 className="text-3xl font-bold text-gray-900 uppercase tracking-wider">
+                    <div className="text-right flex-shrink-0">
+                        <h2 className="text-2xl font-bold text-gray-900 uppercase tracking-wider">
                             {isInr ? 'Tax Invoice' : 'Invoice'}
                         </h2>
-                        <p className="text-gray-600 mt-2">
+                        <p className="text-gray-600 mt-2 text-sm">
                             <span className="font-medium">Invoice #:</span>{' '}
                             {data.invoiceNumber || 'INV-001'}
                         </p>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 text-sm">
                             <span className="font-medium">Date:</span> {formatDate(data.invoiceDate)}
                         </p>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 text-sm">
                             <span className="font-medium">Due:</span> {formatDate(data.dueDate)}
                         </p>
                         {data.placeOfSupply && (
-                            <p className="text-gray-600 mt-2">
+                            <p className="text-gray-600 mt-2 text-sm">
                                 <span className="font-medium">Place of Supply:</span> {data.placeOfSupply}
                             </p>
                         )}
@@ -261,7 +262,7 @@ export const InvoicePreview = forwardRef<HTMLDivElement, InvoicePreviewProps>(
                 {/* Footer */}
                 <div className="mt-8 pt-4 border-t border-gray-200 text-center">
                     <p className="text-gray-400 text-xs">
-                        Generated with Invoicer - Free Invoice Generator
+                        Invoicer by PlotArmour
                     </p>
                 </div>
             </div>
