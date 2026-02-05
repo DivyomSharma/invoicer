@@ -30,8 +30,8 @@ export const CursorBackground: React.FC = () => {
                     y: j * spacing + spacing / 2,
                     baseX: i * spacing + spacing / 2,
                     baseY: j * spacing + spacing / 2,
-                    size: 1.5,
-                    opacity: 0.15,
+                    size: 1,
+                    opacity: 0.08,
                 });
             }
         }
@@ -60,25 +60,25 @@ export const CursorBackground: React.FC = () => {
                 // Push particles away from cursor
                 const force = (maxDistance - distance) / maxDistance;
                 const angle = Math.atan2(dy, dx);
-                const pushX = Math.cos(angle) * force * 30;
-                const pushY = Math.sin(angle) * force * 30;
+                const pushX = Math.cos(angle) * force * 25;
+                const pushY = Math.sin(angle) * force * 25;
 
                 particle.x = particle.baseX - pushX;
                 particle.y = particle.baseY - pushY;
-                particle.opacity = 0.15 + force * 0.5;
-                particle.size = 1.5 + force * 2;
+                particle.opacity = 0.08 + force * 0.2;
+                particle.size = 1 + force * 1.5;
             } else {
                 // Return to base position with easing
                 particle.x += (particle.baseX - particle.x) * 0.1;
                 particle.y += (particle.baseY - particle.y) * 0.1;
-                particle.opacity += (0.15 - particle.opacity) * 0.1;
-                particle.size += (1.5 - particle.size) * 0.1;
+                particle.opacity += (0.08 - particle.opacity) * 0.1;
+                particle.size += (1 - particle.size) * 0.1;
             }
 
-            // Draw particle
+            // Draw particle - dark gray color
             ctx.beginPath();
             ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+            ctx.fillStyle = `rgba(60, 60, 60, ${particle.opacity})`;
             ctx.fill();
         });
 
@@ -89,9 +89,9 @@ export const CursorBackground: React.FC = () => {
                 const dy = p1.y - p2.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 80) {
+                if (distance < 70) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - distance / 80)})`;
+                    ctx.strokeStyle = `rgba(50, 50, 50, ${0.03 * (1 - distance / 70)})`;
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
@@ -141,8 +141,8 @@ export const CursorBackground: React.FC = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 pointer-events-none z-0"
-            style={{ background: 'transparent' }}
+            className="fixed inset-0 pointer-events-none"
+            style={{ background: 'transparent', zIndex: -1 }}
         />
     );
 };
