@@ -44,7 +44,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
                     bg-dark-900 rounded
                     border transition-colors duration-150
                     text-white text-sm
-                    placeholder:text-dark-500
+                    placeholder:text-dark-300
                     focus:outline-none
                     resize-none
                     ${isFocused

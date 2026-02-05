@@ -73,7 +73,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
                         flex-1 w-full px-3 py-2.5
                         bg-transparent
                         text-white text-sm
-                        placeholder:text-dark-500
+                        placeholder:text-dark-300
                         focus:outline-none
                         disabled:cursor-not-allowed
                         ${leftIcon ? 'pl-2' : ''}
