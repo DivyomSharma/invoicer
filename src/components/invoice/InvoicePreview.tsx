@@ -36,7 +36,7 @@ export const InvoicePreview = forwardRef<HTMLDivElement, InvoicePreviewProps>(
             <div
                 ref={ref}
                 className="invoice-preview bg-white text-gray-900 p-8 rounded-lg shadow-lg"
-                style={{ fontFamily: "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif", width: '100%', minHeight: '842px' }}
+                style={{ fontFamily: "var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", width: '100%', minHeight: '842px' }}
             >
                 {/* Header */}
                 <div className="flex justify-between items-start mb-8">
